@@ -1,0 +1,19 @@
+body {
+  background: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.drag {
+  top: 50%;
+  display: flex;
+  width: 50vw;
+  height: 50vh;
+  margin: auto;
+  background: #f7f7f7;
+  border-radius: 4px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
