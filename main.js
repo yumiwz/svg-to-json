@@ -1,6 +1,8 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, ipcMain } = require('electron')
 
+const {download} = require('electron-dl');
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -58,3 +60,21 @@ ipcMain.on('ondragstart', (event, arg) => {
   console.log('>>>>>>>>', arg) // prints "ping"
   event.returnValue = 'pong'
 })
+
+
+  
+  ipcMain.on('ondragstartfile', (event, filePath) => {
+
+    event.sender.startDrag({
+      file: filePath,
+      icon: "file.png"
+    })
+    console.log("haha", filePath)
+  })
+
+  ipcMain.on('ondownload', (e, args) => {
+    console.log(">>>>", args)
+    download(BrowserWindow.getFocusedWindow(), args.url)
+      .then(dl => console.log(dl.getSavePath()))
+      .catch(console.error);
+  });

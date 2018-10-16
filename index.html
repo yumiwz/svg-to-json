@@ -6,9 +6,13 @@
     <link href='./main.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
+    <p id="headline">SVG-JSON CONVERTER</p>
+    <p id="title">Please drop your folder with svgs to the box below.</p>
     <div id='drag' class='drag'>
-      drag your folder here
+      <img src='./file.png'>
     </div>
+    <div id="dragtarget" draggable="true" class="dragtarget">DRAG ME FOR JSON FILE</div>
+    <div id="nexttarget" class="nexttarget">NEXT FOLDER</div>
     <script>
       require('./renderer.js');
     </script>
